@@ -77,7 +77,7 @@ locals {
               yum install -y nginx
               systemctl start nginx
               systemctl enable nginx
-              echo "Hello from Auto Scaling EC2" > /usr/share/nginx/html/index.html
+              echo "Hello Task completed Successfully" > /usr/share/nginx/html/index.html
               EOF
 }
 
