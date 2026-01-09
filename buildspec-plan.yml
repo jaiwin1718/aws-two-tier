@@ -3,10 +3,16 @@ version: 0.2
 phases:
   install:
     commands:
-      - yum install -y unzip
-      - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_linux_amd64.zip
+      - echo "Installing Terraform"
+      - yum install -y unzip curl
+      - curl -fsSL https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_linux_amd64.zip -o terraform.zip
       - unzip terraform.zip
-      - mv terraform /usr/local/bin/
+      - chmod +x terraform
+      - mkdir -p /opt/terraform
+      - mv terraform /opt/terraform/
+      - export PATH=$PATH:/opt/terraform
+      - terraform --version
+
   build:
     commands:
       - cd envs/prod
