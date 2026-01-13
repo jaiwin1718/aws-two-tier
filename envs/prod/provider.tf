@@ -3,7 +3,6 @@ terraform {
     bucket         = "aws-tf-test-bkt-1718"
     key            = "terraform/state/terraform.tfstate"
     region         = "us-east-1"
-    use_lockfile = true
     encrypt        = true
   }
   required_providers {
